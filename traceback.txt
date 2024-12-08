@@ -1,22 +1,32 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 109, in script
-    protag "It's nice to meet you too. I'm [pov]."
-Exception: Sayer b'protag' is not a function or string.
+  File "renpy/common/00start.rpy", line 193, in script
+    python:
+  File "renpy/common/00start.rpy", line 194, in <module>
+    renpy.execute_default_statement(True)
+  File "game/script.rpy", line 43, in execute_default
+    default protag = True
+Exception: store.protag is being given a default a second time.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 109, in script
-    protag "It's nice to meet you too. I'm [pov]."
-  File "C:\Users\minha\OneDrive\Desktop\renpy-8.2.3-sdk\renpy\ast.py", line 2560, in execute
-    Say.execute(self)
-  File "C:\Users\minha\OneDrive\Desktop\renpy-8.2.3-sdk\renpy\ast.py", line 592, in execute
-    raise Exception("Sayer %s is not a function or string." % self.who.encode("utf-8"))
-Exception: Sayer b'protag' is not a function or string.
+  File "renpy/common/00start.rpy", line 193, in script
+    python:
+  File "C:\Users\minha\OneDrive\Desktop\renpy-8.2.3-sdk\renpy\ast.py", line 823, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "C:\Users\minha\OneDrive\Desktop\renpy-8.2.3-sdk\renpy\python.py", line 1178, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "renpy/common/00start.rpy", line 194, in <module>
+    renpy.execute_default_statement(True)
+  File "C:\Users\minha\OneDrive\Desktop\renpy-8.2.3-sdk\renpy\exports.py", line 4100, in execute_default_statement
+    i.execute_default(start)
+  File "game/script.rpy", line 43, in execute_default
+    default protag = True
+Exception: store.protag is being given a default a second time.
 
 Windows-10-10.0.22631 AMD64
 Ren'Py 8.2.3.24061702
 ColoUrs 1.0
-Sat Dec  7 21:16:19 2024
+Sat Dec  7 22:26:04 2024

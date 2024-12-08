@@ -1,5 +1,6 @@
 ﻿# Characterrs
 define protag = True # True=black, false=white
+default pov = "A"
 define red = Character(_("Vermilion"), color="#E34234")
 define orange = Character(_("Persimmon"), color="#EC5800")
 define yellow = Character(_("Maize"), color="#FBEC5D")
@@ -77,7 +78,7 @@ label start:
         if protag == True:
             white "Go say hi to someone."
             black "What are you going to do?"
-            white "Follow you, duh."
+            white "Don't worry about it."
             menu:
                 "Who will you talk to first?"
                 "Red":
@@ -102,16 +103,31 @@ label start:
                 "No One":
                     jump ashRoute
     
-    label verRoute:
+    label verRoute: # Passionate Assertive Tsun -- Bitter End
         mystery "You're... talking to me?"
         mystery "Nice."
         red "I'm {color=#E34234}Vermilion.{/color} It's nice to meet you or whatever."
-        if protag == True:
-            black "I'm [pov]. It's nice to meet you too!"
-            red ""
-        if protag == False:
-            white "Likewise. I'm [pov]."
-            red ""
+        black "I'm [pov]. It's nice to meet you too!"
+        red "Sure."
+        black "It is. It's interesting meeting new people. And you seem interesting."
+        red "Th-thanks..."
+        black "(Is he blushing?)"
+        black "(It's kinda cute.)"
+        red "Tch, what are you laughing at?"
+        black "It's nothing, you just... looked kinda cute there."
+        red "!-"
+        red "Th-that's-"
+        red "Shut up!"
+        black "Sorry..."
+        black "I'm really sorry if I'm bothering you. I-I can go talk to someone else."
+        red "No!"
+        red "I mean, you don't have to."
+        black "Oh- Oh!"
+        black "Okay!"
+        black "Maybe we can meet somewhere else to?"
+        red "Why not?"
+        "Five months later"
+        black "Romance blah blah smooch"
     
     label perRoute:
         #Orange
