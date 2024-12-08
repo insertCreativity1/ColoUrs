@@ -1,10 +1,10 @@
 ﻿# Characterrs
-define protag = False # True=black, false=white
+define protag = True # True=black, false=white
 define red = Character(_("Vermilion"), color="#E34234")
 define orange = Character(_("Persimmon"), color="#EC5800")
 define yellow = Character(_("Maize"), color="#FBEC5D")
 define green = Character(_("Aventurine"), color="#04b75a")
-define blue = Character(_("Aoi/Azure"), color="#007FFF")
+define blue = Character(_("Azure"), color="#007FFF")
 define purple = Character(_("Orchid"), color="#DA70D6")
 define grey = Character(_("Ash"), color="#B2BEB5")
 define mystery = Character(("???"), color="#804103")
@@ -30,24 +30,24 @@ label start:
         "The White Twin":
             $ protag = False
             define black = Character(_("Onyx"), color="#000000") # Support
-            define white = Character("[povname]", color="#ffffff")
+            define white = Character("[pov]", color="#ffffff")
             python:
-                povname = renpy.input("So... what's your name?", length=32)
-                povname = povname.strip()
-                if not povname:
-                    povname = "Quartz"
-            black "Come on, let's go [povname]!"
+                pov = renpy.input("So... what's your name?", length=32)
+                pov = pov.strip()
+                if not pov:
+                    pov = "Quartz"
+            black "Come on, let's go [pov]!"
             jump charIntro
         "The Black Twin":
             $ protag = True
             define white = Character(_("Quartz"), color="#ffffff") # Support
-            define black = Character("[povname]", color="#000000")
+            define black = Character("[pov]", color="#000000")
             python:
-                povname = renpy.input("What is your name?", length=32)
-                povname = povname.strip()
-                if not povname:
-                    povname = "Onyx"
-            white "Alright, are you actually ready now [povname]?"
+                pov = renpy.input("What is your name?", length=32)
+                pov = pov.strip()
+                if not pov:
+                    pov = "Onyx"
+            white "Alright, are you actually ready now [pov]?"
             jump charIntro
 
     label charIntro:
@@ -61,9 +61,9 @@ label start:
             white "I'm sure it'll be fine."
             black "But I don't wanna make a bad first impression..."
         #Ver
-        mystery "Tch, there's still more people coming?"
+        mystery "Hey there's more people coming."
         #Simeon
-        mystery "Don't be like that. It's always nice to see new faces!"
+        mystery "Oh yay! It's always nice to see new faces!"
         #Maize
         mystery "They better be interesting."
         #Turine
@@ -103,7 +103,15 @@ label start:
                     jump ashRoute
     
     label verRoute:
-        #Red
+        mystery "You're... talking to me?"
+        mystery "Nice."
+        red "I'm {color=#E34234}Vermilion.{/color} It's nice to meet you or whatever."
+        if protag == True:
+            black "I'm [pov]. It's nice to meet you too!"
+            red ""
+        if protag == False:
+            white "Likewise. I'm [pov]."
+            red ""
     
     label perRoute:
         #Orange

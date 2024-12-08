@@ -1,28 +1,22 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 2, in script
-    define protag = false # True=black, false=white
-  File "game/script.rpy", line 2, in <module>
-    define protag = false # True=black, false=white
-NameError: name 'false' is not defined
+  File "game/script.rpy", line 109, in script
+    protag "It's nice to meet you too. I'm [pov]."
+Exception: Sayer b'protag' is not a function or string.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 2, in script
-    define protag = false # True=black, false=white
-  File "C:\Users\minha\OneDrive\Desktop\renpy-8.2.3-sdk\renpy\ast.py", line 2222, in execute
-    self.set()
-  File "C:\Users\minha\OneDrive\Desktop\renpy-8.2.3-sdk\renpy\ast.py", line 2236, in set
-    value = renpy.python.py_eval_bytecode(self.code.bytecode)
-  File "C:\Users\minha\OneDrive\Desktop\renpy-8.2.3-sdk\renpy\python.py", line 1202, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 2, in <module>
-    define protag = false # True=black, false=white
-NameError: name 'false' is not defined
+  File "game/script.rpy", line 109, in script
+    protag "It's nice to meet you too. I'm [pov]."
+  File "C:\Users\minha\OneDrive\Desktop\renpy-8.2.3-sdk\renpy\ast.py", line 2560, in execute
+    Say.execute(self)
+  File "C:\Users\minha\OneDrive\Desktop\renpy-8.2.3-sdk\renpy\ast.py", line 592, in execute
+    raise Exception("Sayer %s is not a function or string." % self.who.encode("utf-8"))
+Exception: Sayer b'protag' is not a function or string.
 
 Windows-10-10.0.22631 AMD64
 Ren'Py 8.2.3.24061702
 ColoUrs 1.0
-Thu Dec  5 09:17:25 2024
+Sat Dec  7 21:16:19 2024
