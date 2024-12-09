@@ -32,7 +32,6 @@ label charIntro:
     black "I'm glad. Hopefully, one of them will be the right one."
     black "Let's see..."
     black "{color=#E34234}Vermilion.{/color}"
-    black "{color=#FBEC5D}Maize.{/color}"
     black "{color=#04b75a}Turine.{/color}"
     black "{color=#007FFF}Azure.{/color}"
     menu:
@@ -208,7 +207,7 @@ label verRoute: # Passionate Assertive Tsun -- Bitter End
         "{color=#E34234}Or maybe how things would go if you chose someone else.{/color}"
         return
 
-label maizeRoute:
+#label maizeRoute:
     #Yellow
 
 label turineRoute:
