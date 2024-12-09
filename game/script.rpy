@@ -51,6 +51,10 @@ label verRoute:
     #Setting: At the side of the school, a lone man sits on the floor. His backpack
     #is thrown aside, spilling open to show a variety of textbooks and half-filled notebooks.
     #He leans back, not realizing someone else had come near. 
+    scene bg school side
+    "{i}At the side of the school, a lone man sits on the floor.{/i}"
+    "{i}His backpack is thrown aside, spilling open to show a variety of textbooks and half-filled notebooks.{/i}"
+    "{i}He leans back, not realizing someone else had come near.{/i}"
     show red
     mystery "Ha..."
     black "(Huh? I didn't realize I would find anyone here.)"
@@ -88,7 +92,9 @@ label verRoute:
     black "I wanna get to know you."
     red "You're weird."
     black "So are you!"
+    hide red
     "--A few weeks later--"
+    show red
     red "What's up [pov]?"
     black "Oh! Hey Ver."
     black "Can I ask you about something?"
@@ -123,9 +129,10 @@ label verRoute:
         black "I'll see you later?"
         red "We'll see."
         black "(Why do I have such a bad feeling in my throat?)"
-        #class
+        scene bg hallway with fade
         black "(If I stop by the library, I should be able to grab a pod and study for an hour there.)"
         black "(Then I can work-)"
+        show red
         black "Ah!"
         red "Cmon [pov], I thought you'd be harder to surprise."
         black "Ver???"
@@ -205,7 +212,7 @@ label verRoute:
         red "Sorry, I'm sorry."
         red "You deserved better than me. You always did."
         red "I wish I could love you better."
-        hide red
+        hide red with fade
         black "Wait- where are you going?"
         red "I'm sorry [pov]."
         black "Ver?"
@@ -223,6 +230,10 @@ label turineRoute:
     #on a bench, surrounded by manicured hedges and expensive decor. The player notices him looking
     #out into the distance, lost in thought. There’s something magnetic about him, though he’s always
     #surrounded by an air of mystery.
+    scene bg school side
+    "{i}A quiet, elegant garden on the school campus. It’s after hours.{/i}"
+    "{i}Turine is seated on a bench, surrounded by manicured hedges and expensive decor.{/i}"
+    "{i}He looks out into the distance, lost in thought.{/i}"
     show green
     black "(Who is that? I’ve seen him around, but he’s never really talked to anyone...)"
     mystery "Ah, you. I’ve seen you around. You seem… interesting."
@@ -235,7 +246,7 @@ label turineRoute:
     black "(What is this feeling?)"
     black "(It's like he knows more about me than I know about myself.)"
     hide green
-    #Class
+    scene bg hallway with fade
     "--The next day--"
     show green
     green "You’re stressed, aren’t you? I noticed you’ve been overworking yourself lately."
@@ -272,7 +283,7 @@ label turineRoute:
         black "(It feels like a weight's fallen on me.)"
         black "(I just can't find it in me to pull away from his warmth though...)"
         green "You’ll see, everything will fall into place soon. I’ll make sure of it."
-        #Balcony
+        scene bg balcony with fade
         green "I’ve been thinking a lot about us, lately. I know I can’t keep pretending to just be your friend. I want more than that."
         green "I want you to be with me, fully. No more doubts, no more running away."
         black "Turine, I—"
@@ -289,6 +300,7 @@ label turineRoute:
         return
     
     label turineBad:
+        scene bg rich with fade
         "--A few weeks later--"
         show green
         black "(It's so wonderful here. It's everything I could ever ask for.)"
@@ -317,8 +329,12 @@ label turineRoute:
         return
 
 label azureRoute:
+    scene bg robo
+    "{i}The school’s annual Tech and Robotics Hackathon, where students show off their latest projects.{/i}"
+    "{i}There’s less emphasis on hacking and more on the general environment of the event.{/i}"
+    "{i}Something's a bit... odd about a certain woman.{/i}"
     show blue
-    black "Wait… what is Azure building? That doesn’t look like it’s for the competition."
+    black "(Wait… what is Azure building? That doesn’t look like it’s for the competition.)"
     blue "..."
     black "Hey, Azure, what’s this? I didn’t think we were supposed to bring our own drones. Is that… allowed?"
     blue "Oh, this? Yeah, it’s just a little side project. Don’t worry about it. I’m not entering it into the competition."
@@ -328,6 +344,7 @@ label azureRoute:
     black "(For a simple project, it looks really complicated...)"
     black "Interesting."
     hide blue
+    scene bg school side with fade
     "--Later that afternoon--"
     show blue
     blue "Hey, I need to talk to you about something. It’s important."
@@ -355,6 +372,7 @@ label azureRoute:
             jump azureBad
     
     label azureGood:
+        scene bg room with fade
         show blue
         blue "This is where we usually do training when things need to stay quiet."
         blue "You won’t find any ‘spy gadgets’ here. It’s more about using what’s around you—thinking on your feet and staying calm."
@@ -381,6 +399,7 @@ label azureRoute:
         black "I just need to live my life, you know? I’m not ready for something this dangerous."
         black "(Even though she didn't say anything, we both understood my answer.)"
         hide blue
+        scene bg hallway with fade
         "--A few weeks later--"
         black "(After what Azure said, something about life felt... off.)"
         black "(What the- a break-in annoucement?)"
@@ -388,7 +407,6 @@ label azureRoute:
         show blue
         blue "I warned you, didn’t I? This world doesn’t leave you alone. Now, I have to deal with this, and you’ve been dragged into it."
         black "I chose safety. But maybe I’ve given up something important."
-        hide blue
         hide blue
         "{color=#007FFF}BLUE ROUTE: BAD?{/color}"
         "{color=#007FFF}Wanna see how else things could have turned out?{/color}"
