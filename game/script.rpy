@@ -4,7 +4,7 @@ default pov = "A"
 define red = Character(_("Vermilion"), color="#E34234")
 define orange = Character(_("Persimmon"), color="#EC5800")
 define yellow = Character(_("Maize"), color="#FBEC5D")
-define green = Character(_("Aventurine"), color="#04b75a")
+define green = Character(_("Turine"), color="#04b75a")
 define blue = Character(_("Azure"), color="#007FFF")
 define purple = Character(_("Orchid"), color="#DA70D6")
 define grey = Character(_("Ash"), color="#B2BEB5")
@@ -13,136 +13,113 @@ define mystery = Character(("???"), color="#804103")
 # The game starts here.
 
 label start:
-
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
-
     scene bg room
+    mystery '"Meet the love of your life here!"'
+    mystery "I can't believe I'm really doing this..."
+    mystery "Well, my twin said it was a good idea."
+    mystery "I just need to write my name."
+    define black = Character("[pov]", color="#000000")
+    python:
+        pov = renpy.input("What is your name?", length=32)
+        pov = pov.strip()
+        if not pov:
+            pov = "Onyx"
+    black "Alright, let's do this."
+    jump charIntro
 
-    #Note: It'll be clarified who's actually talking where when sprites are added
-    mystery "You ready to go inside?" #White
-    mystery "Yeah! But... aren't you forgetting something?" #Black
-    mystery "Right, first we gotta figure out who's heading this." #White
-    mystery "Then they gotta make a choice." #black 
-
+label charIntro:
+    black "It looks like there's a few options."
+    black "I'm glad. Hopefully, one of them will be the right one."
+    black "Let's see..."
     menu:
-        "Chose Your Protagonist"
-        "The White Twin":
-            $ protag = False
-            define black = Character(_("Onyx"), color="#000000") # Support
-            define white = Character("[pov]", color="#ffffff")
-            python:
-                pov = renpy.input("So... what's your name?", length=32)
-                pov = pov.strip()
-                if not pov:
-                    pov = "Quartz"
-            black "Come on, let's go [pov]!"
-            jump charIntro
-        "The Black Twin":
-            $ protag = True
-            define white = Character(_("Quartz"), color="#ffffff") # Support
-            define black = Character("[pov]", color="#000000")
-            python:
-                pov = renpy.input("What is your name?", length=32)
-                pov = pov.strip()
-                if not pov:
-                    pov = "Onyx"
-            white "Alright, are you actually ready now [pov]?"
-            jump charIntro
+        "Who will you talk?"
+        "Vermillion":
+            jump verRoute
+        "Maize":
+            jump maizeRoute
+        "Turine":
+            jump turineRoute
+        "Azure":
+            jump azureRoute
 
-    label charIntro:
-        if protag == True:
-            white "It looks like we're the last ones to arrive."
-            white "If only you were a little faster."
-            black "Sorry..."
-            white "Whatever. They should all be decent."
-        if protag == False:
-            black "Shoot, we're late!"
-            white "I'm sure it'll be fine."
-            black "But I don't wanna make a bad first impression..."
-        #Ver
-        mystery "Hey there's more people coming."
-        #Simeon
-        mystery "Oh yay! It's always nice to see new faces!"
-        #Maize
-        mystery "They better be interesting."
-        #Turine
-        mystery "I'm sure at least one of the two is."
-        #Azure
-        mystery "As long as they don't bother my work, I don't care."
-        #Orchid
-        mystery "D-don't you think we should try talking?"
-        #Ash
-        mystery "..."
-        if protag == True:
-            white "Go say hi to someone."
-            black "What are you going to do?"
-            white "Don't worry about it."
-            menu:
-                "Who will you talk to first?"
-                "Red":
-                    jump verRoute
-                "Orange":
-                    jump perRoute
-                "Yellow":
-                    jump maizeRoute
-                "No One":
-                    jump ashRoute
-        if protag == False:
-            black "Come on, let's go talk!"
-            white "Fine."
-            menu:
-                "Who Will You Approach?"
-                "Green":
-                    jump turineRoute
-                "Blue":
-                    jump azureRoute
-                "Purple":
-                    jump orchidRoute
-                "No One":
-                    jump ashRoute
+label verRoute: # Passionate Assertive Tsun -- Bitter End
+    #Setting: At the side of the school, a lone man sits on the floor. His backpack
+    #is thrown aside, spilling open to show a variety of textbooks and half-filled notebooks.
+    #He leans back, not realizing someone else had come near. 
+    mystery "Ha..."
+    black "(Huh? I didn't realize I would find anyone here.)"
+    black "(I wonder if he's lonely.)"
+    black "Hey there."
+    mystery "What the-"
+    mystery "The hell are you doing here?"
+    black "I-I was just walking around!"
+    mystery "Tch, whatever."
+    black "Um... I'm {color=#000000}[pov].{/color} It's nice to meet you."
+    red "{color=#E34234}Vermilion.{/color}"
+    black "That's a really long name."
+    red "Got a problem with that?"
+    black "No! I mean- not with you. I mean-"
+    black "Sorry, I'm rambling."
+    black "I mean if it's okay if I just called you Ver."
+    red "!-"
+    red "Yeahsurewhatever."
+    black "(Was that a blush I saw?)"
+    black "(He's kinda cute like that.)"
+    black "Hehe."
+    red "What are you laughing about?"
+    black "N-nothing!"
+    black "Class is starting soon. We should head back inside."
+    red "Eh. I'll go in eventually."
+    red "I know that there's nothing important going on today though."
+    black "So?"
+    red "So it wouldn't be the worst day to skip."
+    black "Skip?! Are you insane?!"
+    red "Calm your pants down. It'll be fine."
+    black "What makes you so sure?"
+    red "I've done it before?"
+    black "Well... if you think it's a good idea..."
+    black "I'll do it once, okay?"
+    black "I wanna get to know you."
+    red "You're weird."
+    black "So are you!"
+    "--A few weeks later--"
+    red "What's up [pov]?"
+    black "Oh! Hey Ver."
+    black "Can I ask you about something?"
+    red "Sure."
+    black "Why are you always skipping?"
+    red "Tch, I'm not {i}always{/i} skipping."
+    black "When was the last time you actually went to class?"
+    red "I don't see how that's any of your business."
+    black "I care about you though."
+    red "!-"
+    red "You..."
+    red "You what?"
+    black "I care about you. Was that not obvious?"
+    black "We've been talking outside here for weeks, of course I care."
+    red "If you care so much, then leave my habits alone."
+    red "Or you can just go back to class. See if I care."
+    black "Ver!"
+    red "What?"
+    red "Would you rather spend time out here with me or just follow the rules?"
+    black "I..."
+        menu:
+            "Spend time with Ver":
+                jump verBad
+            "Go back to class":
+                jump verGood
+
+    label verBad:
+        black "I want to stay with you."
     
-    label verRoute: # Passionate Assertive Tsun -- Bitter End
-        mystery "You're... talking to me?"
-        mystery "Nice."
-        red "I'm {color=#E34234}Vermilion.{/color} It's nice to meet you or whatever."
-        black "I'm [pov]. It's nice to meet you too!"
-        red "Sure."
-        black "It is. It's interesting meeting new people. And you seem interesting."
-        red "Th-thanks..."
-        black "(Is he blushing?)"
-        black "(It's kinda cute.)"
-        red "Tch, what are you laughing at?"
-        black "It's nothing, you just... looked kinda cute there."
-        red "!-"
-        red "Th-that's-"
-        red "Shut up!"
-        black "Sorry..."
-        black "I'm really sorry if I'm bothering you. I-I can go talk to someone else."
-        red "No!"
-        red "I mean, you don't have to."
-        black "Oh- Oh!"
-        black "Okay!"
-        black "Maybe we can meet somewhere else to?"
-        red "Why not?"
-        "Five months later"
-        black "Romance blah blah smooch"
-    
-    label perRoute:
-        #Orange
-    
-    label maizeRoute:
-        #Yellow
-    
-    label turineRoute:
-        #Green
-    
-    label azureRoute:
-        #Blue
-    
-    label orchidRoute:
-        #Purple
-    
-    label ashRoute:
-        #Grey
+    label verGood:
+        black "I'm sorry, but I can't ignore school."
+
+label maizeRoute:
+    #Yellow
+
+label turineRoute:
+    #Green
+
+label azureRoute:
+    #Blue
