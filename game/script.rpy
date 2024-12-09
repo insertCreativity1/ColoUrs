@@ -1,19 +1,14 @@
 ﻿# Characterrs
-define protag = True # True=black, false=white
 default pov = "A"
 define red = Character(_("Vermilion"), color="#E34234")
-define orange = Character(_("Persimmon"), color="#EC5800")
-define yellow = Character(_("Maize"), color="#FBEC5D")
 define green = Character(_("Turine"), color="#04b75a")
 define blue = Character(_("Azure"), color="#007FFF")
-define purple = Character(_("Orchid"), color="#DA70D6")
-define grey = Character(_("Ash"), color="#B2BEB5")
 define mystery = Character(("???"), color="#804103")
 
 # The game starts here.
 
 label start:
-    scene bg room
+    scene bg b
     mystery '"Meet the love of your life here!"'
     mystery "I can't believe I'm really doing this..."
     mystery "Well, my twin said it was a good idea."
@@ -31,9 +26,15 @@ label charIntro:
     black "It looks like there's a few options."
     black "I'm glad. Hopefully, one of them will be the right one."
     black "Let's see..."
+    show red
     black "{color=#E34234}Vermilion.{/color} An assertive man, stubborn in his ideals. He holds his heart tightly so only those closest to him see it."
+    hide red
+    show green
     black "{color=#04b75a}Turine.{/color} A wealthy man, calm in his demeaner. He looks after the sort of people that catch his attention."
+    hide green
+    show blue
     black "{color=#007FFF}Azure.{/color} An intelligent woman, determined in her passions."
+    hide blue
     black '"Warning: You may forget the reason you entered depending on who you choose. This allows optimal immersion."'
     black "They really went all out for this, huh..."
     black "Well then, I think I'll choose-"
@@ -50,6 +51,7 @@ label verRoute:
     #Setting: At the side of the school, a lone man sits on the floor. His backpack
     #is thrown aside, spilling open to show a variety of textbooks and half-filled notebooks.
     #He leans back, not realizing someone else had come near. 
+    show red
     mystery "Ha..."
     black "(Huh? I didn't realize I would find anyone here.)"
     black "(I wonder if he's lonely.)"
@@ -107,6 +109,7 @@ label verRoute:
     red "What?"
     red "Would you rather just follow the rules or be with me?"
     black "I..."
+    hide red
     menu:
         "I need to go back.":
             jump verGood
@@ -114,6 +117,7 @@ label verRoute:
             jump verBad
 
     label verGood:
+        show red
         black "I'm sorry, but I can't ignore school."
         red "Fine. Whatever. Do what you want."
         black "I'll see you later?"
@@ -140,12 +144,14 @@ label verRoute:
         black "Hey, how about we pick somewhere a little less risky to hang out at?"
         red "Sure."
         black "I have an idea in mind already!"
+        hide red
         "{color=#E34234}RED ROUTE: GOOD!{/color}"
         "{color=#E34234}Wanna see how else things could have turned out?{/color}"
         "{color=#E34234}Or maybe how things would go if you chose someone else.{/color}"
         return
 
     label verBad:
+        show red
         black "I want to stay with you."
         red "What?"
         black "Don't look so shocked!"
@@ -164,9 +170,10 @@ label verRoute:
         black "(I guess he's not mad.)"
         black "(I didn't realize he'd be easy to tease like this.)"
         black "Hehe."
-        #hide
+        hide red
         black "(It was nice.)"
         black "(But nice times don't last forever.)"
+        show red
         black "Hey Ver?"
         red "Yeah?"
         black "This might be a weird question but..."
@@ -198,6 +205,7 @@ label verRoute:
         red "Sorry, I'm sorry."
         red "You deserved better than me. You always did."
         red "I wish I could love you better."
+        hide red
         black "Wait- where are you going?"
         red "I'm sorry [pov]."
         black "Ver?"
@@ -210,14 +218,12 @@ label verRoute:
         "{color=#E34234}Or maybe how things would go if you chose someone else.{/color}"
         return
 
-#label maizeRoute:
-    #Yellow
-
 label turineRoute:
     #Setting: A quiet, elegant garden on the school campus. It’s after hours, and Turine is seated
     #on a bench, surrounded by manicured hedges and expensive decor. The player notices him looking
     #out into the distance, lost in thought. There’s something magnetic about him, though he’s always
     #surrounded by an air of mystery.
+    show green
     black "(Who is that? I’ve seen him around, but he’s never really talked to anyone...)"
     mystery "Ah, you. I’ve seen you around. You seem… interesting."
     black "Oh, um, hi. Do I know you?"
@@ -228,8 +234,10 @@ label turineRoute:
     green "I think you do. But you’re more modest than I expected."
     black "(What is this feeling?)"
     black "(It's like he knows more about me than I know about myself.)"
+    hide green
     #Class
     "--The next day--"
+    show green
     green "You’re stressed, aren’t you? I noticed you’ve been overworking yourself lately."
     green "It’s not good for you, you know. You should rest."
     black "What? How do you even—?"
@@ -244,6 +252,7 @@ label turineRoute:
     green "Of course, you are. But sometimes, it’s okay to let someone take care of you. You wouldn’t have to lift a finger."
     green "Just think about it, okay?"
     black "(Somehow, I get the feeling just saying no wouldn't be enough for him.)"
+    hide green
     menu:
         "I'll think about it":
             jump turineGood
@@ -252,6 +261,7 @@ label turineRoute:
 
     label turineGood:
         "--A few weeks later--"
+        show green
         green "You know, I’ve arranged something special for you. You’ve been working too hard, and you need to relax."
         green "You’re going to come to the party tonight, and you won’t worry about anything. Just trust me."
         black "(It's funny, I've gotten so used to him saying things like that.)"
@@ -272,6 +282,7 @@ label turineRoute:
         black "(God, when he looks at me like that, how am I supposed to say anything but yes?)"
         green "I’ll protect you. I’ll make you happy. We belong together, don’t you think?"
         black "I… I think so."
+        hide green
         "{color=#04b75a}GREEN ROUTE: GOOD?{/color}"
         "{color=#04b75a}Wanna see how else things could have turned out?{/color}"
         "{color=#04b75a}Or maybe how things would go if you chose someone else.{/color}"
@@ -279,6 +290,7 @@ label turineRoute:
     
     label turineBad:
         "--A few weeks later--"
+        show green
         black "(It's so wonderful here. It's everything I could ever ask for.)"
         black "(Comfort, wealth, and Turine's attention.)"
         black "(Was it... worth it?)"
@@ -298,12 +310,87 @@ label turineRoute:
         green "No one else can have you."
         black "Turine?"
         green "You’ll learn to love me. In time. I’ll make sure of it."
+        hide green
         "{color=#04b75a}GREEN ROUTE: BAD!{/color}"
         "{color=#04b75a}Wanna see how else things could have turned out?{/color}"
         "{color=#04b75a}Or maybe how things would go if you chose someone else.{/color}"
         return
 
 label azureRoute:
+    show blue
     black "Wait… what is Azure building? That doesn’t look like it’s for the competition."
     blue "..."
-    black ""
+    black "Hey, Azure, what’s this? I didn’t think we were supposed to bring our own drones. Is that… allowed?"
+    blue "Oh, this? Yeah, it’s just a little side project. Don’t worry about it. I’m not entering it into the competition."
+    blue "Just a personal thing. You know, building tech is like… second nature to me."
+    black "Uh… okay. Are you sure it’s not some secret prototype you’re planning to use for world domination?"
+    blue "Nah, nothing so dramatic. Just a hobby. It helps me relax."
+    black "(For a simple project, it looks really complicated...)"
+    black "Interesting."
+    hide blue
+    "--Later that afternoon--"
+    show blue
+    blue "Hey, I need to talk to you about something. It’s important."
+    blue "Okay, so here it is. I’m not just a student at this school. I’m part of something bigger."
+    blue "Something… secret."
+    black "What? You’re not joking, right? Are you like… a spy or something?"
+    blue "..."
+    blue "Kind of. I work for an organization that handles special operations."
+    blue "Think of it as a secret group that solves problems no one else can—problems too dangerous or sensitive for normal people to get involved in."
+    blue "And the thing is, I think you could be a great fit for it."
+    black "(I can't tell whether to laugh or take her seriously.)"
+    black "(But she seems pretty earnest.)"
+    black "Wait, you’re saying I—me—could join your secret agency?"
+    blue "Yes. You’ve got something that could make a difference. You’ve got the right mindset—the kind that doesn’t get rattled under pressure."
+    blue "And I could use a partner, someone I can trust. Someone who can help me handle… certain situations."
+    black "(This...)"
+    black "(This is insane...)"
+    blue "You don’t have to decide now. But think about it. You’d be part of something that really matters."
+    blue "You wouldn’t be just another student. You’d be… making a difference."
+    hide blue
+    menu:
+        "I’m in. Let’s do it.":
+            jump azureGood
+        "This sounds insane. I’m not sure I’m cut out for this.":
+            jump azureBad
+    
+    label azureGood:
+        show blue
+        blue "This is where we usually do training when things need to stay quiet."
+        blue "You won’t find any ‘spy gadgets’ here. It’s more about using what’s around you—thinking on your feet and staying calm."
+        blue "Here, take a training manual."
+        black "(I didn't realize becoming a spy meant so much reading.)"
+        black '(This has things like “how to make quick, low-profile exits” and “how to read people in a crowd.”)'
+        blue "The first thing we need to focus on is how to blend in. If you’re too flashy, you’re a target. People need to think you’re just another student."
+        black "Got it. So, no capes and dramatic entrances?"
+        blue "Exactly. The trick is to stay unnoticed until you need to act. And when you do act, you act decisively. We’ll start with a few basic exercises."
+        blue "You're a natural at this."
+        blue "We’re doing more than just ‘saving the day.’ We’re making the world a safer place, one piece at a time."
+        hide blue
+        "{color=#007FFF}BLUE ROUTE: GOOD.{/color}"
+        "{color=#007FFF}Wanna see how else things could have turned out?{/color}"
+        "{color=#007FFF}Or maybe how things would go if you chose someone else.{/color}"
+        return
+    
+    label azureBad:
+        show blue
+        black "Look, Azure, I appreciate what you're offering, but… I just don’t know if I’m cut out for this. It’s too much."
+        blue "I get it. It’s a lot to take in. This life isn’t for everyone."
+        blue "I’ll respect your choice, but just know that if you ever change your mind, I’ll be here."
+        blue "But… this isn’t something you can walk away from forever."
+        black "I just need to live my life, you know? I’m not ready for something this dangerous."
+        black "(Even though she didn't say anything, we both understood my answer.)"
+        hide blue
+        "--A few weeks later--"
+        black "(After what Azure said, something about life felt... off.)"
+        black "(What the- a break-in annoucement?)"
+        black "What is happening? Why is this so familiar?"
+        show blue
+        blue "I warned you, didn’t I? This world doesn’t leave you alone. Now, I have to deal with this, and you’ve been dragged into it."
+        black "I chose safety. But maybe I’ve given up something important."
+        hide blue
+        hide blue
+        "{color=#007FFF}BLUE ROUTE: BAD?{/color}"
+        "{color=#007FFF}Wanna see how else things could have turned out?{/color}"
+        "{color=#007FFF}Or maybe how things would go if you chose someone else.{/color}"
+        return
