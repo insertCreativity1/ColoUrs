@@ -31,12 +31,14 @@ label charIntro:
     black "It looks like there's a few options."
     black "I'm glad. Hopefully, one of them will be the right one."
     black "Let's see..."
+    black "{color=#E34234}Vermilion.{/color}"
+    black "{color=#FBEC5D}Maize.{/color}"
+    black "{color=#04b75a}Turine.{/color}"
+    black "{color=#007FFF}Azure.{/color}"
     menu:
         "Who will you talk?"
         "Vermillion":
             jump verRoute
-        "Maize":
-            jump maizeRoute
         "Turine":
             jump turineRoute
         "Azure":
@@ -103,17 +105,108 @@ label verRoute: # Passionate Assertive Tsun -- Bitter End
     red "What?"
     red "Would you rather spend time out here with me or just follow the rules?"
     black "I..."
-        menu:
-            "Spend time with Ver":
-                jump verBad
-            "Go back to class":
-                jump verGood
+    menu:
+        "Stay Outside With Ver":
+            jump verBad
+        "Go Back To Class":
+            jump verGood
 
     label verBad:
         black "I want to stay with you."
+        red "What?"
+        black "Don't look so shocked!"
+        black "I told you, you mean a lot to me."
+        red "..."
+        black "(His face is all red. Did I make him mad?)"
+        red "Thank you."
+        black "Huh?"
+        red "S-sorry it's just... no one has ever done that for me before."
+        red "Or stick around really."
+        black "I can't believe that."
+        black "You're worth it for me."
+        red "St-stop saying that!"
+        black "Why? It's true."
+        red "..."
+        black "(I guess he's not mad.)"
+        black "(I didn't realize he'd be easy to tease like this.)"
+        black "Hehe."
+        #hide
+        black "(It was nice.)"
+        black "(But nice times don't last forever.)"
+        black "Hey Ver?"
+        red "Yeah?"
+        black "This might be a weird question but..."
+        black "What color is your jacket?"
+        red "Red, duh."
+        red "It's the same one I always wear."
+        black "It is?"
+        black "Sorry, I must have just not slept well."
+        red "You good?"
+        black "I'm sure it'll be fine."
+        black "It must just be the lighting."
+        red "What color did you think it was?"
+        black "Haha, this is gonna sound stupid."
+        black "To me it looks almost..."
+        black "Grey?"
+        red "Grey? Weird."
+        black "It is. It's not just that though."
+        black "For some reason, when I look around, everything looks off."
+        black "It's likely every color is fading."
+        red "Oh- Oh no-"
+        red "This wasn't supposed to happen-"
+        black "What?"
+        red "I didn't realize it would affect you oh my god-"
+        black "What are you talking about?"
+        red "You don't deserve this-"
+        black "Ver!"
+        red "I thought it was just a myth-"
+        black "VER!"
+        red "Sorry, I'm sorry."
+        red "You deserved better than me. You always did."
+        red "I wish I could love you better."
+        black "Wait- where are you going?"
+        red "I'm sorry [pov]."
+        black "Ver?"
+        black "Ver!"
+        black "{b}VER! PLEASE!{/b}"
+        black "(No matter what I said, no matter what I did, no matter how much I turned my heart, things never went back to normal.)"
+        black "(It all simply faded to grey.)"
+        "{color=#E34234}RED ROUTE: BAD{/color}"
+        "{color=#E34234}Wanna see how else things could have turned out?{/color}"
+        "{color=#E34234}Or maybe how things would go if you chose someone else.{/color}"
+        return
     
     label verGood:
         black "I'm sorry, but I can't ignore school."
+        red "Fine. Whatever. Do what you want."
+        black "I'll see you later?"
+        red "We'll see."
+        black "(Why do I have such a bad feeling in my throat?)"
+        #class
+        black "(If I stop by the library, I should be able to grab a pod and study for an hour there.)"
+        black "(Then I can work-)"
+        black "Ah!"
+        red "Cmon [pov], I thought you'd be harder to surprise."
+        black "Ver???"
+        red "Yeah. Turns out our classrooms are right next to each other."
+        black "Wait- your class?"
+        black "You went to class?"
+        red "Yep."
+        red "Annoyingly enough, you do have a point. I need to get my life together."
+        black "I'm glad you're trying."
+        red "I owe it to you."
+        black "To me?"
+        red "Do I have to repeat it? Without you, I don't know if I would've shown up today."
+        red "So..."
+        red "Thanks."
+        black "Of course!"
+        black "Hey, how about we pick somewhere a little less risky to hang out at?"
+        red "Sure."
+        black "I have an idea in mind already!"
+        "{color=#E34234}RED ROUTE: GOOD{/color}"
+        "{color=#E34234}Wanna see how else things could have turned out?{/color}"
+        "{color=#E34234}Or maybe how things would go if you chose someone else.{/color}"
+        return
 
 label maizeRoute:
     #Yellow
